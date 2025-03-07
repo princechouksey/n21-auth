@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feeds</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex justify-center p-4">
+    <main class="w-[300px] ">
+        <section class="">
+            <div class="posts flex flex-col items-center gap-6 h-[500px]">
+                <% posts.forEach(post => { %>
+                <div class="post bg-white rounded-lg shadow-md p-4 w-full max-w-md border">
+                    <div class="top flex items-center gap-3 mb-3 p-2 border-b">
+                        <img src="<%= post.author.imageUrl %>" alt="User Image" class="h-10 w-10 rounded-full object-cover border">
+                        <h1 class="font-semibold text-gray-800"><%= post.author.username %></h1>
+                    </div>
+                    <img src="<%= post.media %>" alt="Post Image" class="w-[250px] h-[300px] object-cover rounded-lg">
+                    <div class="p-3">
+                        <div class="flex items-center justify-between text-gray-600 text-sm mb-2">
+                            <button class="flex items-center gap-1 text-red-500 hover:text-red-600">
+                                ❤️ Like
+                            </button>
+                            <button class="flex items-center gap-1 text-blue-500 hover:text-blue-600">
+                                💬 Comment
+                            </button>
+                        </div>
+                        <p class="text-gray-700 font-medium"><%= post.caption %></p>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
